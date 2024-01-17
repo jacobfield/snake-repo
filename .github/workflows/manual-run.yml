@@ -1,7 +1,10 @@
 name: manual run
 
 on:
-  workflow_dispatch:
+  push:
+  schedule: 
+       - cron: '0 0 * * *'
+  
 
 jobs:
   generate:
@@ -25,6 +28,8 @@ jobs:
             dist/docker/github-contribution-grid-snake.svg
             dist/docker/github-contribution-grid-snake-dark.svg?palette=github-dark
             dist/docker/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            dist/docker/github-contribution-grid-snake-dark.gif?palette=github-dark
+            dist/docker/github-contribution-grid-snake.gif
 
       - name: ensure the generated file exists
         run: |
